@@ -1,4 +1,4 @@
 rootProject.name = 'Promotion-UI'
-include ':PromotionJPA'
 
+include ':PromotionJPA'
 project(':PromotionJPA').projectDir = new File(settingsDir, '../PromotionJPA')
