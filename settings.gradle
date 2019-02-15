@@ -1,0 +1,9 @@
+
+rootProject.name = 'PWM'
+include ':PromotionJPA'
+
+project(':PromotionJPA').projectDir = new File(settingsDir, '../PromotionJPA')
+
+include ':Promotion-UI'
+
+project(':Promotion-UI').projectDir = new File(settingsDir, '../Promotion-UI')
