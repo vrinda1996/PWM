@@ -10,16 +10,16 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryMasterDto {
-	 public String mcCode;
-	 public String mcName;
-	 public String categoryName;
-	 public String subCategoryName;
-	 public String createdBy;
-	 public Long locationID;
-	 public String locationName;
-	 public Boolean isMCActive;
+	 private String mcCode;
+	 private String mcName;
+	 private String categoryName;
+	 private String subCategoryName;
+	 private String createdBy;
+	 private Long locationID;
+	 private String locationName;
+	 private Boolean isMCActive;
    //added by vrinda --start
-	 public String updatedDate;
-	 public String updatedBy;
+	 private String updatedDate;
+	 private String updatedBy;
    //added by vrinda --end
 }
