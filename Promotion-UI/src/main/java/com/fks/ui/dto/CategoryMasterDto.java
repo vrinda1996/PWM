@@ -1,23 +1,25 @@
 package com.fks.ui.dto;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class CategoryMasterDto {
-	private String mcCode;
-    private String mcName;
-    private String categoryName;
-    private String subCategoryName;
-    private String createdBy;
-    private Long locationID;
-    private String locationName;
-    private Boolean isMCActive;
+	 public String mcCode;
+	 public String mcName;
+	 public String categoryName;
+	 public String subCategoryName;
+	 public String createdBy;
+	 public Long locationID;
+	 public String locationName;
+	 public Boolean isMCActive;
    //added by vrinda --start
-    private String updatedDate;
-    private String updatedBy;
+	 public String updatedDate;
+	 public String updatedBy;
    //added by vrinda --end
 }
