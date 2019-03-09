@@ -19,7 +19,7 @@ public class MstEmployee implements Serializable {
 
 	@Id
 	@Column(name="emp_id")
-	private String empId;
+	private Long empId;
 
 	@Column(name="contact_no")
 	private BigInteger contactNo;
@@ -206,11 +206,11 @@ public class MstEmployee implements Serializable {
 	public MstEmployee() {
 	}
 
-	public String getEmpId() {
+	public Long getEmpId() {
 		return this.empId;
 	}
 
-	public void setEmpId(String empId) {
+	public void setEmpId(Long empId) {
 		this.empId = empId;
 	}
 

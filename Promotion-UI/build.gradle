@@ -26,6 +26,7 @@ repositories {
 
 dependencies {
 	compile project(':PromotionJPA')
+	annotationProcessor 'org.projectlombok:lombok'
 	compileOnly 'org.projectlombok:lombok'
 	implementation('org.springframework.boot:spring-boot-starter')
 	compile('org.mapstruct:mapstruct-jdk8:1.2.0.Final')

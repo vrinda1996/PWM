@@ -1,10 +1,21 @@
 package com.fks.promo.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
+import java.util.Collection;
 import java.util.Date;
-import java.math.BigInteger;
-import java.util.List;
+
+import javax.persistence.Basic;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 
 /**
@@ -18,205 +29,156 @@ public class MstStore implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@Column(name="mst_store_id")
-	private String mstStoreId;
+    @Basic(optional = false)
+    @Column(name = "mst_store_id")
+    private String mstStoreId;
+    @Column(name = "region_name")
+    private String regionName;
+    @Column(name = "state")
+    private String state;
+    @Column(name = "city")
+    private String city;
+    @Column(name = "site_description")
+    private String siteDescription;
+    @Column(name = "format_name")
+    private String formatName;
+    @Column(name = "store_class")
+    private String storeClass;
+    @Column(name = "updated_date")
+    @Temporal(TemporalType.DATE)
+    private Date updatedDate;
+    @Column(name = "is_blocked")
+    private Boolean isBlocked;
+    @JoinColumn(name = "created_by", referencedColumnName = "emp_id")
+    @ManyToOne
+    private MstEmployee mstEmployee;
+    @JoinColumn(name = "mst_zone_id", referencedColumnName = "zone_id")
+    @ManyToOne
+    private MstZone mstZone;
+    @JoinColumn(name = "mst_location_id", referencedColumnName = "location_id")
+    @ManyToOne
+    private MstLocation mstLocation;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "mstStore")
+    private Collection<MapPromoStore> mapPromoStoreCollection;
+    @OneToMany(mappedBy = "mstStore")
+    private Collection<MstEmployee> mstEmployeeCollection;
 
-	private String city;
+    public MstStore() {
+    }
 
-	@Column(name="company_code")
-	private String companyCode;
+    public MstStore(String mstStoreId) {
+        this.mstStoreId = mstStoreId;
+    }
 
-	@Column(name="created_by")
-	private BigInteger createdBy;
+    public String getMstStoreId() {
+        return mstStoreId;
+    }
 
-	@Column(name="format_name")
-	private String formatName;
+    public void setMstStoreId(String mstStoreId) {
+        this.mstStoreId = mstStoreId;
+    }
 
-	@Column(name="is_blocked")
-	private byte isBlocked;
+    public String getRegionName() {
+        return regionName;
+    }
 
-	@Column(name="region_name")
-	private String regionName;
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
+    }
 
-	@Column(name="site_description")
-	private String siteDescription;
+    public String getState() {
+        return state;
+    }
 
-	private String state;
+    public void setState(String state) {
+        this.state = state;
+    }
 
-	@Column(name="store_class")
-	private String storeClass;
+    public String getCity() {
+        return city;
+    }
 
-	@Temporal(TemporalType.DATE)
-	@Column(name="updated_date")
-	private Date updatedDate;
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	//bi-directional many-to-one association to MapPromoStore
-	@OneToMany(mappedBy="mstStore")
-	private List<MapPromoStore> mapPromoStores;
+    public String getSiteDescription() {
+        return siteDescription;
+    }
 
-	//bi-directional many-to-one association to MstEmployee
-	@OneToMany(mappedBy="mstStore")
-	private List<MstEmployee> mstEmployees;
+    public void setSiteDescription(String siteDescription) {
+        this.siteDescription = siteDescription;
+    }
 
-	//bi-directional many-to-one association to MstLocation
-	@ManyToOne
-	@JoinColumn(name="mst_location_id")
-	private MstLocation mstLocation;
+    public String getFormatName() {
+        return formatName;
+    }
 
-	//bi-directional many-to-one association to MstZone
-	@ManyToOne
-	@JoinColumn(name="mst_zone_id")
-	private MstZone mstZone;
+    public void setFormatName(String formatName) {
+        this.formatName = formatName;
+    }
 
-	public MstStore() {
-	}
+    public String getStoreClass() {
+        return storeClass;
+    }
 
-	public String getMstStoreId() {
-		return this.mstStoreId;
-	}
+    public void setStoreClass(String storeClass) {
+        this.storeClass = storeClass;
+    }
 
-	public void setMstStoreId(String mstStoreId) {
-		this.mstStoreId = mstStoreId;
-	}
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
 
-	public String getCity() {
-		return this.city;
-	}
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public Boolean getIsBlocked() {
+        return isBlocked;
+    }
 
-	public String getCompanyCode() {
-		return this.companyCode;
-	}
+    public void setIsBlocked(Boolean isBlocked) {
+        this.isBlocked = isBlocked;
+    }
 
-	public void setCompanyCode(String companyCode) {
-		this.companyCode = companyCode;
-	}
+    public MstEmployee getMstEmployee() {
+        return mstEmployee;
+    }
 
-	public BigInteger getCreatedBy() {
-		return this.createdBy;
-	}
+    public void setMstEmployee(MstEmployee mstEmployee) {
+        this.mstEmployee = mstEmployee;
+    }
 
-	public void setCreatedBy(BigInteger createdBy) {
-		this.createdBy = createdBy;
-	}
+    public MstZone getMstZone() {
+        return mstZone;
+    }
 
-	public String getFormatName() {
-		return this.formatName;
-	}
+    public void setMstZone(MstZone mstZone) {
+        this.mstZone = mstZone;
+    }
 
-	public void setFormatName(String formatName) {
-		this.formatName = formatName;
-	}
+    public MstLocation getMstLocation() {
+        return mstLocation;
+    }
 
-	public byte getIsBlocked() {
-		return this.isBlocked;
-	}
+    public void setMstLocation(MstLocation mstLocation) {
+        this.mstLocation = mstLocation;
+    }
 
-	public void setIsBlocked(byte isBlocked) {
-		this.isBlocked = isBlocked;
-	}
+    public Collection<MapPromoStore> getMapPromoStoreCollection() {
+        return mapPromoStoreCollection;
+    }
 
-	public String getRegionName() {
-		return this.regionName;
-	}
+    public void setMapPromoStoreCollection(Collection<MapPromoStore> mapPromoStoreCollection) {
+        this.mapPromoStoreCollection = mapPromoStoreCollection;
+    }
 
-	public void setRegionName(String regionName) {
-		this.regionName = regionName;
-	}
+    public Collection<MstEmployee> getMstEmployeeCollection() {
+        return mstEmployeeCollection;
+    }
 
-	public String getSiteDescription() {
-		return this.siteDescription;
-	}
-
-	public void setSiteDescription(String siteDescription) {
-		this.siteDescription = siteDescription;
-	}
-
-	public String getState() {
-		return this.state;
-	}
-
-	public void setState(String state) {
-		this.state = state;
-	}
-
-	public String getStoreClass() {
-		return this.storeClass;
-	}
-
-	public void setStoreClass(String storeClass) {
-		this.storeClass = storeClass;
-	}
-
-	public Date getUpdatedDate() {
-		return this.updatedDate;
-	}
-
-	public void setUpdatedDate(Date updatedDate) {
-		this.updatedDate = updatedDate;
-	}
-
-	public List<MapPromoStore> getMapPromoStores() {
-		return this.mapPromoStores;
-	}
-
-	public void setMapPromoStores(List<MapPromoStore> mapPromoStores) {
-		this.mapPromoStores = mapPromoStores;
-	}
-
-	public MapPromoStore addMapPromoStore(MapPromoStore mapPromoStore) {
-		getMapPromoStores().add(mapPromoStore);
-		mapPromoStore.setMstStore(this);
-
-		return mapPromoStore;
-	}
-
-	public MapPromoStore removeMapPromoStore(MapPromoStore mapPromoStore) {
-		getMapPromoStores().remove(mapPromoStore);
-		mapPromoStore.setMstStore(null);
-
-		return mapPromoStore;
-	}
-
-	public List<MstEmployee> getMstEmployees() {
-		return this.mstEmployees;
-	}
-
-	public void setMstEmployees(List<MstEmployee> mstEmployees) {
-		this.mstEmployees = mstEmployees;
-	}
-
-	public MstEmployee addMstEmployee(MstEmployee mstEmployee) {
-		getMstEmployees().add(mstEmployee);
-		mstEmployee.setMstStore(this);
-
-		return mstEmployee;
-	}
-
-	public MstEmployee removeMstEmployee(MstEmployee mstEmployee) {
-		getMstEmployees().remove(mstEmployee);
-		mstEmployee.setMstStore(null);
-
-		return mstEmployee;
-	}
-
-	public MstLocation getMstLocation() {
-		return this.mstLocation;
-	}
-
-	public void setMstLocation(MstLocation mstLocation) {
-		this.mstLocation = mstLocation;
-	}
-
-	public MstZone getMstZone() {
-		return this.mstZone;
-	}
-
-	public void setMstZone(MstZone mstZone) {
-		this.mstZone = mstZone;
-	}
-
+    public void setMstEmployeeCollection(Collection<MstEmployee> mstEmployeeCollection) {
+        this.mstEmployeeCollection = mstEmployeeCollection;
+    }
 }

@@ -17,7 +17,7 @@ public class MstLocation implements Serializable {
 
 	@Id
 	@Column(name="location_id")
-	private String locationId;
+	private Long locationId;
 
 	@Column(name="location_name")
 	private String locationName;
@@ -37,11 +37,11 @@ public class MstLocation implements Serializable {
 	public MstLocation() {
 	}
 
-	public String getLocationId() {
+	public Long getLocationId() {
 		return this.locationId;
 	}
 
-	public void setLocationId(String locationId) {
+	public void setLocationId(Long locationId) {
 		this.locationId = locationId;
 	}
 
