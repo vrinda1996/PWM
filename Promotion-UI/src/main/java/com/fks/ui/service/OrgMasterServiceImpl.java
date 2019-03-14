@@ -49,7 +49,10 @@ public class OrgMasterServiceImpl implements OrgMasterService {
 				storeVO.setZoneCode(ms.getMstZone().getZoneCode());
 			}
 			if (ms.getIsBlocked() != null) {
-				storeVO.setIsStoreBlocked(ms.getIsBlocked());
+				if(ms.getIsBlocked())
+					storeVO.setIsStoreBlocked("Blocked");
+				else
+					storeVO.setIsStoreBlocked("Active");
 			}
 			storeVOList.add(storeVO);
 		}

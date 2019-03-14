@@ -3,6 +3,7 @@ package com.fks.promo.entity;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -61,7 +62,7 @@ public class MstStore implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "mstStore")
     private Collection<MapPromoStore> mapPromoStoreCollection;
     @OneToMany(mappedBy = "mstStore")
-    private Collection<MstEmployee> mstEmployeeCollection;
+    private List<MstEmployee> mstEmployeeCollection;
 
     public MstStore() {
     }
@@ -174,11 +175,11 @@ public class MstStore implements Serializable {
         this.mapPromoStoreCollection = mapPromoStoreCollection;
     }
 
-    public Collection<MstEmployee> getMstEmployeeCollection() {
+    public List<MstEmployee> getMstEmployeeCollection() {
         return mstEmployeeCollection;
     }
 
-    public void setMstEmployeeCollection(Collection<MstEmployee> mstEmployeeCollection) {
+    public void setMstEmployeeCollection(List<MstEmployee> mstEmployeeCollection) {
         this.mstEmployeeCollection = mstEmployeeCollection;
     }
 }
