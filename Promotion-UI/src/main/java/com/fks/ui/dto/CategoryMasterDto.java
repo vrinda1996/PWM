@@ -17,7 +17,7 @@ public class CategoryMasterDto {
 	 private String createdBy;
 	 private Long locationID;
 	 private String locationName;
-	 private Boolean isMCActive;
+	 private String isMCActive;
    //added by vrinda --start
 	 private String updatedDate;
 	 private String updatedBy;

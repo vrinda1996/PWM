@@ -24,5 +24,5 @@ public class OrgMasterDto {
     private String zoneCode;
     private Long LocationID;
     private String LocationName;
-    private Boolean isStoreBlocked;
+    private String isStoreBlocked;
 }

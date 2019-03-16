@@ -39,7 +39,8 @@ bin/
 *.launch
 .settings/
 
-
+bin/
+build/
 .gradle
 /build/
 
