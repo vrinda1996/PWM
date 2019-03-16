@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.fks.promo.entity.Mch;
 
 @Repository
-
 public interface CategoryMasterRepository extends JpaRepository<Mch, String> {
 
 	
