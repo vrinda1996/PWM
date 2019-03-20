@@ -1,7 +1,16 @@
-rootProject.name = 'PWM'
+rootProject.name = 'pwm'
 
-include ':PromotionJPA'
-project(':PromotionJPA').projectDir = new File(settingsDir, 'PromotionJPA')
+include ':pwm-common'
+project(':pwm-common').projectDir = new File(settingsDir, 'pwm-common')
 
-include ':Promotion-UI'
-project(':Promotion-UI').projectDir = new File(settingsDir, 'Promotion-UI')
+include ':pwm-entity'
+project(':pwm-entity').projectDir = new File(settingsDir, 'pwm-entity')
+
+include ':pwm-repository'
+project(':pwm-repository').projectDir = new File(settingsDir, 'pwm-repository')
+
+include ':pwm-service'
+project(':pwm-service').projectDir = new File(settingsDir, 'pwm-service')
+
+include ':pwm-ui'
+project(':pwm-ui').projectDir = new File(settingsDir, 'pwm-ui')

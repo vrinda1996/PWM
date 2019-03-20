@@ -1,0 +1,11 @@
+
+rootProject.name = 'pwm-service'
+
+include ':pwm-common'
+project(':pwm-common').projectDir = new File(settingsDir, '../pwm-common')
+
+include ':pwm-entity'
+project(':pwm-entity').projectDir = new File(settingsDir, '../pwm-entity')
+
+include ':pwm-repository'
+project(':pwm-repository').projectDir = new File(settingsDir, '../pwm-repository')
