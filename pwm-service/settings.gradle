@@ -1,4 +1,3 @@
-
 rootProject.name = 'pwm-service'
 
 include ':pwm-common'

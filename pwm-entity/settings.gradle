@@ -1,2 +1,5 @@
 
 rootProject.name = 'pwm-entity'
+
+include ':pwm-common'
+project(':pwm-common').projectDir = new File(settingsDir, '../pwm-common')
