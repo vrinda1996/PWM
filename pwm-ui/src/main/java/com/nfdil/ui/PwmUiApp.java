@@ -10,9 +10,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("com.fks")
 @EntityScan("com.fks.promo.entity")
 @EnableJpaRepositories("com.fks.ui.repository")
-public class PwmUIApp {
+public class PwmUiApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PwmUIApp.class, args);
+		SpringApplication.run(PwmUiApp.class, args);
 	}
 }
