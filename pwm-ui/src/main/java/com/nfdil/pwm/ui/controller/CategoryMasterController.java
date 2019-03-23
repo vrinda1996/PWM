@@ -1,8 +1,7 @@
-package com.nfdil.ui.controller;
+package com.nfdil.pwm.ui.controller;
 
 import java.io.ByteArrayInputStream;
 import java.util.List;
-import java.util.logging.Logger;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,19 +15,19 @@ import com.nfdil.pwm.common.dto.CategoryMasterDto;
 import com.nfdil.pwm.service.CategoryMasterService;
 
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/categoryApi")
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 @Data
+@Slf4j
 public class CategoryMasterController {
 
 	@Autowired
 	private CategoryMasterService categoryMasterService;
 
 	private HttpServletResponse response;
-
-	private static Logger logger = Logger.getLogger(CategoryMasterController.class.getName());
 
 	@RequestMapping("/category")
 	@ResponseBody
@@ -41,7 +40,7 @@ public class CategoryMasterController {
 
 	@RequestMapping("/downloadCategorySampleFile")
 	public void downloadSampleCategoryFile() {
-		logger.info("==== Inside Download Sample Category MCH File..");
+		log.info("==== Inside Download Sample Category MCH File..");
 		try {
 			StringBuilder sb = new StringBuilder();
 			String fileName = "";
@@ -68,9 +67,9 @@ public class CategoryMasterController {
 			}
 			bis.close();
 			response.getOutputStream().flush();
-			logger.info("====== File Writing is Completed ===== ");
+			log.info("====== File Writing is Completed ===== ");
 		} catch (Exception ex) {
-			logger.info("Exception :" + ex.getMessage());
+			log.info("Exception :" + ex.getMessage());
 		}
 	}
 }

@@ -3,8 +3,6 @@ package com.nfdil.pwm.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,16 +10,18 @@ import com.ndfil.pwm.entity.entities.MstStore;
 import com.nfdil.pwm.common.dto.OrgMasterDto;
 import com.nfdil.pwm.repository.OrgMasterRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class OrgMasterServiceImpl implements OrgMasterService {
-	private static final Logger logger = LogManager.getLogger(OrgMasterServiceImpl.class.getName());
 
 	@Autowired
 	OrgMasterRepository orgMasterRepository;
 
 	@Override
 	public List<OrgMasterDto> getOrganizationDetails() {
-		logger.info("---Inside getOrganizationDetails----");
+		log.info("---Inside getOrganizationDetails----");
 		try {
 		List<MstStore> listStores = orgMasterRepository.getStoreDetails();
 		List<OrgMasterDto> storeVOList = new ArrayList<OrgMasterDto>();
@@ -58,7 +58,7 @@ public class OrgMasterServiceImpl implements OrgMasterService {
 		}
 		return storeVOList;
 	  }catch(Exception e){
-		  logger.info("Exception in orgDetails");
+		  log.info("Exception in orgDetails");
 		  e.printStackTrace();
 		  return null;
 	  }

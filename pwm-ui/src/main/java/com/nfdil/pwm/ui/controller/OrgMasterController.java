@@ -1,4 +1,4 @@
-package com.nfdil.ui.controller;
+package com.nfdil.pwm.ui.controller;
 
 import java.util.List;
 

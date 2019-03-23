@@ -8,7 +8,5 @@ import com.ndfil.pwm.entity.entities.Mch;
 
 @Repository
 public interface CategoryMasterRepository extends JpaRepository<Mch, String> {
-
-	
 	
 }

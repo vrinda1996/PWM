@@ -3,9 +3,9 @@
     Created on : Dec 11, 2012, 2:38:03 PM
     Author     : krutij
 --%>
-<%@page import="com.nfdil.pwm.entity.PropertyEnum"%>
-<%@page import="com.nfdil.pwm.entity.PromotionPropertyUtil"%>
-<%@page import="com.nfdil.pwm.entity.WebConstants"%>
+<%@page import="com.nfdil.pwm.common.enums.PropertyEnum"%>
+<%@page import="com.nfdil.pwm.common.util.PromotionPropertyUtil"%>
+<%@page import="com.nfdil.pwm.common.constants.WebConstants"%>
 <%@page import="java.util.List"%>
 <%-- <%@page import="com.fks.promo.master.service.MessageBroadcastVo" %> --%>
 <%-- <%@page import="com.fks.promo.master.service.MessageBroadcast" %> --%>

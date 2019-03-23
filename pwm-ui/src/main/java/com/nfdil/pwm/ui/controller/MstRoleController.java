@@ -1,4 +1,4 @@
-package com.nfdil.ui.controller;
+package com.nfdil.pwm.ui.controller;
 
 
 import java.util.List;
@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.nfdil.pwm.service.RoleService;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/roleAPI")
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
+@Slf4j
 public class MstRoleController {
 	
 	@Autowired
@@ -23,9 +26,9 @@ public class MstRoleController {
 	@GetMapping("/getRole")
 	@ResponseBody
 	public List<String> getRoleName() {
-		System.out.print("getRoleName");
+		log.info("getRoleName");
 		List<String> roleVo = roleService.getMstRoleName();
-		System.out.print("getRoleName "+roleVo.get(0));
+		log.info("getRoleName "+roleVo.get(0));
 		return roleVo;
 	}
 	

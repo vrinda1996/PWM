@@ -1,17 +1,17 @@
-package com.nfdil.ui.controller;
+package com.nfdil.pwm.ui.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 
-@RestController
+@Controller
 public class demo {
 	
 //	@Autowired
 //	private CategoryMasterService categoryMasterService;
 	
-	@RequestMapping("index")
+	@GetMapping("index")
 	public ModelAndView menuPage() {
 		System.err.println("vrinda");
 		return new ModelAndView("menu/menuPage");

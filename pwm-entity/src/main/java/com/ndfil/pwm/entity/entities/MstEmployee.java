@@ -44,7 +44,7 @@ public class MstEmployee implements Serializable {
 	@Column(name="is_password_change")
 	private byte isPasswordChange;
 
-	private byte isBlocked;
+	private byte isblocked;
 
 	@Column(name="mapped_site_code")
 	private String mappedSiteCode;
@@ -279,11 +279,11 @@ public class MstEmployee implements Serializable {
 	}
 
 	public byte getIsBlocked() {
-		return this.isBlocked;
+		return this.isblocked;
 	}
 
-	public void setIsBlocked(byte isBlocked) {
-		this.isBlocked = isBlocked;
+	public void setIsBlocked(byte isblocked) {
+		this.isblocked = isblocked;
 	}
 
 	public String getMappedSiteCode() {
